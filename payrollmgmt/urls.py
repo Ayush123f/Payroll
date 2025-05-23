@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from payroll.views import *
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
+urlpatterns = [ 
+    path('admin/', admin.site.urls), 
+    path('',index,name='index'),
+      path('registration',registration,name='registration'),
 ]
+
+
+# admin.site.site_header= "Payroll"
