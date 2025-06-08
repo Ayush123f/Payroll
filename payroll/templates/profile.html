@@ -1,0 +1,92 @@
+{% extends "emp_base.html" %}
+{% block main %}
+
+<div class="card shadow m-2">
+  <div class="card-body">
+    <h5 class="p-2 text-danger" style="border-bottom: 2px solid orange">Profile</h5>
+
+    <form method="post" name="signup">
+      {% csrf_token %}
+
+      <div class="row">
+        <!-- First Name -->
+        <div class="col-sm-6 mb-3">
+          <label for="id_firstname" class="form-label">First Name</label>
+          <input type="text" id="id_firstname" name="firstname" class="form-control" placeholder="Enter First Name" pattern="[A-Za-z]+" value="{{employee.user.first_name}}">
+        </div>
+
+        <!-- Last Name -->
+        <div class="col-sm-6 mb-3">
+          <label for="id_lastname" class="form-label">Last Name</label>
+          <input type="text" id="id_lastname" name="lastname" class="form-control" placeholder="Enter Last Name" pattern="[A-Za-z]+" value="{{employee.user.last_name}}">
+        </div>
+
+        <!-- Employee Code -->
+        <div class="col-sm-6 mb-3">
+          <label for="id_empcode" class="form-label">Employee Code</label>
+          <input type="number" id="id_empcode" name="empcode" class="form-control" placeholder="Enter Employee Code" value="{{employee.empcode}}">
+        </div>
+
+        <!-- Department -->
+        <div class="col-sm-6 mb-3">
+          <label for="id_department" class="form-label">Employee Department</label>
+          <input type="text" id="id_department" name="department" class="form-control" placeholder="Department"value="{{empdepartment}}" >
+        </div>
+
+        <!-- Designation -->
+        <div class="col-sm-6 mb-3">
+          <label for="id_designation" class="form-label">Employee Designation</label>
+          <input type="text" id="id_designation" name="designation" class="form-control" placeholder="Designation"value="{{employee.designation}}" >
+        </div>
+
+
+        <!-- Contact -->
+        <div class="col-sm-6 mb-3">
+         <label for="id_contact" class="form-label">Contact</label>
+         <input type="text" id="id_contact" name="contact" class="form-control" placeholder="Enter Contact Number" value="{{employee.contact}}">
+        </div>
+
+
+        <!-- Email -->
+        <div class="col-sm-6 mb-3">
+          <label for="id_email" class="form-label">Email ID</label>
+          <input type="email" id="id_email" name="email" class="form-control" placeholder="Enter Your Email" value="{{employee.user.username}}">
+        </div>
+
+
+        <!-- Joining Date -->
+        <div class="col-sm-6 mb-3">
+          <label>Joining Date[{{employee.joiningdate}}]</label>
+          <input type="date" id="id_jdate" name="jdate" class="form-control" value="{{employee.joiningdate}}">
+        </div>
+
+        <!-- Gender -->
+        <div class="col-sm-6 mb-3">
+          <label>Gender[{{employee.gender}}]</label>
+          <select name="gender" id="id_gender" class="form-control" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+{% if error == "no" %}
+<script>
+  alert('Profile Updated Successfully');
+  window.location = '{% url 'profile' %}';
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('Something went wrong. Please try again.');
+</script>
+{% endif %}
+
+{% endblock %}

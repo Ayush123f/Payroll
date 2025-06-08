@@ -1,0 +1,68 @@
+{% extends "admin_base.html" %}
+
+{% block main %}
+
+
+<div class="card shadow m-2">
+  <div class="card-body">
+    <h5 class="p-2 text-danger" style="border-bottom: 2px solid orange">Employee Details</h5>
+
+    <div class="container-fluid">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>S.N</th>
+            <th>Emp_Code</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email ID</th>
+            <th>Contact No.</th>
+            <th>Joiningdate</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in employee%}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.empcode}}</td>
+            <td>{{i.user.first_name}}</td>
+            <td>{{i.user.last_name}}</td>
+            <td>{{i.user.username}}</td>
+            <td>{{i.contact}}</td>
+            <td>{{i.joiningdate}}</td>
+            {% comment %} <td>{{forloop.counter}}</td> {% endcomment %}
+             <td>
+              <a href="{% url 'edit_employee' i.id %}" class="btn btn-sm btn-primary">Edit</a>
+              <a href="{% url 'delete_employee' i.id %}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this employee?');">Delete</a>
+
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+</div>
+
+{% if error == "no" %}
+<script>
+  alert('Password Updated Successfully');
+  window.location = '{% url 'logout' %}';
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('Something went wrong. Please try again.');
+</script>
+{% endif %}
+
+{% if error == "not" %}
+<script>
+  alert('Your current password is wrong');
+</script>
+{% endif %}
+
+{% endblock %}

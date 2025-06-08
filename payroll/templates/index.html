@@ -1,2 +1,36 @@
-{% include 'header.html'%}
+{% load static %}
+{% include 'header.html' %}
+
+<!-- Carousel -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+  </div>
+
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/payroll.png' %}" alt="Payroll Image" class="d-block w-100 " style="object-fit: cover; height: 750px;">
+      <div class="carousel-caption">
+        <!-- Optional caption -->
+      </div>
+    </div>
+  </div>
+
+  <!-- No need for left/right controls if there's only one slide -->
+</div>
+
+<div class="container-fluid mt-3">
+  <!-- Optional content -->
+</div>
+
+<!-- Footer start -->
+<footer class="bg-dark text-light py-4 mt-5">
+  <div class="container text-center">
+    <h4 class="mb-0">Payroll Management System</h4>
+  </div>
+</footer>
+<!-- Footer end -->
+
 

@@ -21,7 +21,19 @@ from payroll.views import *
 urlpatterns = [ 
     path('admin/', admin.site.urls), 
     path('',index,name='index'),
-      path('registration',registration,name='registration'),
+    path('registration',registration,name='registration'),
+    path('emp_login',emp_login,name='emp_login'),
+    path('emp_home',emp_home,name='emp_home'),
+    path('profile',profile,name='profile'),
+    path('logout',Logout,name='logout'),
+    path('admin_login',admin_login,name='admin_login'),
+    path('admin_home',admin_home,name='admin_home'),
+    path('change_password',change_password,name='change_password'),
+    path('change_passwordadmin',change_passwordadmin,name='change_passwordadmin'),
+    path('employee_list',employee_list,name='employee_list'),
+    path('edit_employee/<int:id>/', edit_employee, name='edit_employee'),
+    path('delete_employee/<int:id>/', delete_employee, name='delete_employee'),
+    # path('attendance',attendance,name='attendance'),
 ]
 
 

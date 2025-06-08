@@ -1,0 +1,7 @@
+ body {
+      /* background-image: url("{% static 'image/Bg.png' %}"); */
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.8;
+      /* background-position: center; */
+    }
