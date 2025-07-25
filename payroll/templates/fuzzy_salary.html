@@ -1,0 +1,28 @@
+{% extends 'emp_base.html' %}
+{% block main %}
+
+<form method="post">{% csrf_token %}
+  <label>Performance (0-100):</label><br>
+  <input type="number" name="performance" step="0.1" required><br>
+
+  <label>Attendance (0-100):</label><br>
+  <input type="number" name="attendance" step="1" required><br>
+
+  <label>Experience (0-30 years):</label><br>
+  <input type="number" name="experience" step="1" required><br>
+
+  <input type="submit" value="Predict Increment">
+</form>
+
+{% if predicted_bonus_percent %}
+  <hr>
+  <h3>Salary Prediction Result</h3>
+  <p><strong>Performance:</strong> {{ performance }}</p>
+  <p><strong>Attendance:</strong> {{ attendance }}</p>
+  <p><strong>Experience:</strong> {{ experience }}</p>
+  <p><strong>Bonus Percentage:</strong> {{ predicted_bonus_percent }}%</p>
+  <p><strong>Bonus Amount:</strong> Rs. {{ bonus_amount }}</p>
+  <p><strong>Net Salary:</strong> Rs. {{ net_salary }}</p>
+{% endif %}
+
+{% endblock %}

@@ -24,7 +24,9 @@
           <div class ="list-group">
             <a href="{% url 'emp_home' %}"class="list-group-item list-group-item-warning list-group-item-action{% if '/emp_home' in request.path %}active{% endif %}">Dashboard</a>
             <a href="{% url 'profile' %}"class="list-group-item list-group-item-warning list-group-item-action">Profile</a>
-            <a href=""class="list-group-item list-group-item-warning list-group-item-action">Payroll</a>
+            <a href="{% url 'salary_calculation' %}"class="list-group-item list-group-item-warning list-group-item-action">Payroll</a>
+             <a href="{% url 'fuzzy_salary' %}"class="list-group-item list-group-item-warning list-group-item-action">Predict</a>
+                {% comment %} <a href="{% url 'result' %}"class="list-group-item list-group-item-warning list-group-item-action">Payroll</a> {% endcomment %}
             <a href="{% url 'change_password' %}"class="list-group-item list-group-item-warning list-group-item-action">Change Password</a>
             <a href="{%url 'logout'%}"class="list-group-item list-group-item-warning list-group-item-action">logout</a>
           </div>

@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+
 from payroll.views import *
 
 urlpatterns = [ 
@@ -33,7 +35,9 @@ urlpatterns = [
     path('employee_list',employee_list,name='employee_list'),
     path('edit_employee/<int:id>/', edit_employee, name='edit_employee'),
     path('delete_employee/<int:id>/', delete_employee, name='delete_employee'),
-    # path('attendance',attendance,name='attendance'),
+    path('salary/',salary_calculation, name='salary_calculation'),
+    path('fuzzy_salary', fuzzy_salary_view, name='fuzzy_salary'),
+    
 ]
 
 

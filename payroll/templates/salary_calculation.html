@@ -1,0 +1,17 @@
+{% extends 'emp_base.html' %}
+{% block main %}
+
+<h3 class="text-center mb-4">Employee Salary Calculation</h3>
+
+<table class="table table-bordered table-striped">
+  <tr><th>Performance</th><td>{{ performance }}</td></tr>
+  <tr><th>Attendance</th><td>{{ attendance }}</td></tr>
+  <tr><th>Experience (Years)</th><td>{{ experience }}</td></tr>
+  <tr><th>Weighted Score</th><td>{{ weighted_score }}</td></tr>
+  <tr><th>Basic Salary</th><td>{{ basic_salary }}</td></tr>
+  <tr><th>Bonus</th><td>{{ bonus }}</td></tr>
+  <tr><th>Deductions</th><td>{{ deductions }}</td></tr>
+  <tr class="table-success"><th><strong>Net Salary</strong></th><td><strong>{{ net_salary }}</strong></td></tr>
+</table>
+
+{% endblock %}
